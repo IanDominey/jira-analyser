@@ -14,8 +14,8 @@ module.exports = {
         }
       ]
     })
-    module['rules'] = rules
-    config['module'] = module
+    module.rules = rules
+    config.module = module
     return config
   }
 }
