@@ -1,1 +1,1 @@
-console.log(`'Allo 'Allo! Content script`)
+document.body.style.border = '5px solid black'
