@@ -6,16 +6,12 @@ module.exports = {
       test: /\.css$/,
       use: [
         {loader: 'style-loader'},
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true
-          }
-        }
+        {loader: 'css-loader'}
       ]
     })
     module.rules = rules
     config.module = module
+    config.devtool = dev ? 'eval-source-map' : config.devtool
     return config
   }
 }
