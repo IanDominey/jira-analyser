@@ -1,1 +1,1 @@
-export const IS_AUTHENTICATED = 'is_authenticated'
+export const AUTHENTICATED = 'is_authenticated'

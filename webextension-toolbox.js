@@ -27,8 +27,7 @@ module.exports.default = {
           {
             loader: 'flowtype-loader',
             options: {
-              failOnError: true,
-              cache: true
+              failOnError: true
             }
           }
         ]
@@ -36,8 +35,8 @@ module.exports.default = {
       .concat({
         test: /\.css$/,
         use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'}
+          'style-loader',
+          'css-loader'
         ]
       })
     plugins.push(new FlowtypePlugin())
