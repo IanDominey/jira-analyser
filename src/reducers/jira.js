@@ -1,5 +1,5 @@
 // @flow
-import type { AuthenticationAction, AuthenticationResultAction } from '../actions/types'
+import type { JiraAction } from '../actions/types'
 import type { AuthenticationState } from './types'
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
   url: ''
 }
 
-export const authentication = (state: AuthenticationState = initialState, action: AuthenticationAction | AuthenticationResultAction): AuthenticationState => {
+export const authentication = (state: AuthenticationState = initialState, action: JiraAction): AuthenticationState => {
   switch (action.type) {
     case 'AUTHENTICATING':
       return {

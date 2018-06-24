@@ -8,6 +8,18 @@ export type AuthenticationAction = {
   url: string
 }
 
-export type AuthenticationResultAction = {
-  type: 'AUTHENTICATION_SUCCESS' | 'AUTHENTICATION_FAILURE'
+export type AuthenticationSuccessAction = {
+  type: 'AUTHENTICATION_SUCCESS'
 }
+
+export type AuthenticationFailureAction = {
+  type: 'AUTHENTICATION_FAILED'
+}
+
+export type AuthenticationResultAction =
+  AuthenticationSuccessAction
+  | AuthenticationFailureAction
+
+export type JiraAction =
+  AuthenticationResultAction
+  | AuthenticationAction

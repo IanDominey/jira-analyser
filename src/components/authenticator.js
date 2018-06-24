@@ -6,6 +6,8 @@ import type { FormRenderProps } from 'react-final-form'
 import { Field, Form } from 'react-final-form'
 import type { AuthenticationState } from '../reducers/types'
 import { connect } from 'react-redux'
+import type { AuthenticationAction } from '../actions/types'
+import { authenticate } from '../actions/jira'
 
 const required = value => (value ? undefined : 'Required')
 
@@ -36,10 +38,10 @@ const FormRow: React.StatelessFunctionalComponent<RowProps> = (props: RowProps):
 const AuthForm: React.StatelessFunctionalComponent<FormRenderProps> = ({handleSubmit, submitting, invalid}: FormRenderProps) => {
   return (
     <BsForm onSubmit={handleSubmit}>
-      <FormRow label='Jira Url' name='jiraUrl' placeholder="http://my.jira.url" type='url'/>
-      <FormRow label='Username' name='user' placeholder="username" type='text'/>
+      <FormRow label='Jira Url' name='jiraUrl' placeholder='http://my.jira.url' type='url'/>
+      <FormRow label='Username' name='username' placeholder='username' type='text'/>
       <FormRow label='Password' name='password' type='password'/>
-      <Button type="submit" disabled={submitting || invalid}>Sign In</Button>
+      <Button type='submit' id='submit' disabled={submitting || invalid}>Sign In</Button>
     </BsForm>
   )
 }
@@ -47,7 +49,8 @@ const AuthForm: React.StatelessFunctionalComponent<FormRenderProps> = ({handleSu
 const onSubmit = (): void => {}
 
 type AuthProps = {
-  authenticated: boolean
+  authenticated: boolean,
+  authenticate: (string, string, string) => AuthenticationAction
 }
 
 const Authenticator: React.StatelessFunctionalComponent<AuthProps> = ({authenticated}: AuthProps) => {
@@ -73,4 +76,10 @@ const mapStateToProps = ({authenticated}: AuthenticationState) => {
   return {authenticated}
 }
 
-export default connect(mapStateToProps)(Authenticator)
+const mapDispatchToProps = dispatch => {
+  return {
+    authenticate: (url, username, password) => dispatch(authenticate(url, username, password))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Authenticator)

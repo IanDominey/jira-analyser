@@ -2,7 +2,7 @@
 
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
+import './app.css'
 import Header from './components/header'
 import JiraNav from './components/navbar'
 import Body from './components/body'

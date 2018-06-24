@@ -2,10 +2,12 @@
   "parser": "babel-eslint",
   "extends": [
     "standard",
-    "plugin:flowtype/recommended"
+    "plugin:flowtype/recommended",
+    "plugin:jest/recommended"
   ],
   "plugins": [
-    "flowtype"
+    "flowtype",
+    "jest"
   ],
   "settings": {
     "flowtype": {

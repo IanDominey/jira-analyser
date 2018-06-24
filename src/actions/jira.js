@@ -1,11 +1,27 @@
 // @flow
 
-import type { AuthenticationResultAction } from './types'
+import type { AuthenticationResultAction, AuthenticationAction } from './types'
 
-export const authenticated = (authenticated: boolean): AuthenticationResultAction => {
-  return {
-    type: authenticated ? 'AUTHENTICATION_SUCCESS' : 'AUTHENTICATION_FAILURE'
+export const authenticationResult = (authenticated: boolean): AuthenticationResultAction => {
+  switch (authenticated) {
+    case true:
+      return {
+        type: 'AUTHENTICATION_SUCCESS'
+      }
+    default:
+      return {
+        type: 'AUTHENTICATION_FAILED'
+      }
   }
+}
+
+export const authenticate = (url: string, username: string, password: string): AuthenticationAction => {
+  return ({
+    type: 'AUTHENTICATING',
+    username,
+    password,
+    url
+  })
 }
 
 // export const attemptAuthentication = (url: string, username: string, password: string) => {

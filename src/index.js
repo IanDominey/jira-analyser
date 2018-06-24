@@ -1,9 +1,8 @@
-/* eslint-env browser */
 /* @flow */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
+import App from './app'
 import registerServiceWorker from './registerServiceWorker'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
