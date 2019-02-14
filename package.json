@@ -12,7 +12,7 @@
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^4.1.2",
     "final-form": "^4.8.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
